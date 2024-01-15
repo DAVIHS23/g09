@@ -1,11 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-</body>
+<html>
+    <head>
+        <title>DAVI - Zahlt der Schweizer wirklich am meisten für den Big Mac?</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <!-- Load d3.js -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+        
+
+    
+    </head>
+    <body>
+
+<!-- NAVIGATION BAR -->
+        <div class="w3-top navbarbg">
+            <div class="w3-bar" id="myNavbar">
+                    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                        <i class="fa fa-bars"></i>
+                    </a>
+
+                    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+                    <a href="#info" class="w3-bar-item w3-button">Project Info</a>
+                    <a href="#data" class="w3-bar-item w3-button">Data</a>
+                    <a href="#viz" class="w3-bar-item w3-button">Visualization</a>
+                    <a href="#design" class="w3-bar-item w3-button">Design Choices</a>
+                    <a href="#ref" class="w3-bar-item w3-button">References</a>
+                    <a href="#team" class="w3-bar-item w3-button">Team</a>
+
+            </div>
+        </div>
+
+<!-- FIRST BG IMAGE / HOME SCREEN -->
+        <div class="bgimg-1 w3-display-containeer w3-opacity-min" id="home">
+            <div class="w3-display-middle" style="white-space:nowrap;">
+                    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Zahlt der Schweizer wirklich am meisten für den Big Mac?</span>
+            </div>
+        </div>
+
+<!-- SECTION PROJECT INFO   -->
+        <div class="w3-content w3-container w3-padding-64" id="info">
+            <h3 class="w4-center">Project Info</h3>
+            <p class="text-justify">
+                Was wird Visualisiert<br />
+                Überall liest man, dass es in der Schweiz so teuer sei. Die Schweizer argumentieren, dass sie durch den höheren Lohn davon nicht viel merken.
+                Doch ist das wirklich so? Mit dem Big Mac Index werden die Kosten eines Produkts, welches auf der ganzen Welt gleich vertrieben wird verglichen.
+                Wenn nun der durchschnittslohn eines Landes mit dem Big Mac Preis vom Land verglichen wird, erkennt man ob es der Lohn und Preise in eine guten oder schlechtem verhätnis stehen.
+                Vielleicht lebt der Schweizer doch gunstiger in einem anderen Land?
+            </p>
+        </div>
+
+<!-- SECOND BG IMAGE WITH Data TEXT -->
+
+        <div class="bgimg-2 w3-display-container w3-opacity-min">
+             <div class="w3-display-middle">
+                <span class="w3-xxlarge w3-text-white w3-wide">DATA</span>
+            </div>
+        </div>
+
+
+<!-- SECTION DATA   -->
+        <div class="w3-content w3-container w3-padding-64" id="data">
+            <h3 class="w3-center">Data</h3>
+            <p class="text-justify">
+                Die verwendeten Daten kommen vom sehr bekannten Big-Mac-Index für dessen Preise und Umrechnung.
+                Um diese Daten mit dem Einkommen gegenüberzustellen, werden die Daten der worldbank.org verwendet, welche das durchschnittliche Einkommen pro Kopf aufzeigen.
+            </p>
+        </div>
+
+<!-- SECTION VISUALIZATION -->
+
+        <div class="" id="viz">
+            <h3 class="w3-center">Visualization</h3>
+
+            <div class="table-container w3-center">
+                <div class="left-column">
+                    <div id="gdpMapDiv" style="display: block;">
+                        <button id="gdpButton">Show Price Map</button>
+                        <h3>GDP per Capita in US-Dollar MAP</h3>
+                        <svg id="GDPmapSVG" width="900" height="700"></svg>
+                        <svg id="GDPmapLegendSVG"></svg>
+                    </div>
+                    
+                    <div id="priceMapDiv" style="display: none;">
+                        <button id="priceButton">Show GDP Map</button>
+                        <h3>Price for a Big Mac MAP</h3>
+                        <svg id="PriceMapSVG" width="900" height="700"></svg>
+                        <svg id="PriceMapLegendSVG"></svg>
+                    </div>
+                    <script src="js/div.js"></script>
+                    <script src="js/GDPmap.js"></script>
+                    <script src="js/pricemap.js"></script>
+                </div>
+                <div class="right-column">
+                    <h3>Amount of Big Macs That Could Be Bought With The Yearly Income</h3>
+                    <div id="histogram"></div>
+                <!--<p>
+                    <label># bins</label>
+                    <input type="number" min="1" max="54" step="5" value="54" id="nBin">
+                </p>-->
+                <script src="js/histogram.js"></script>
+                </div>
+                
+            </div>
+            
+            <div class="table-container w3-center">
+                <div id="scatterplot"></div>
+                <script src="js/scatterplot.js"></script>
+            </div>
+
+        </div>     
+<!-- SECTION DESIGN -->
+
+        <div class="w3-content w3-center" id="design">
+            <h3 class="w3-center">Visual Design Choices</h3>
+            <h4 class="w3-center">Foundations Visual Design</h4>
+            <p class="text-justify">
+
+                Die Visualisierung besteht aus einem Dashboard, welches eine interaktive Karte, ein Histogramm und ein brushing Scatterplot umfasst.<br>
+                Die Karte kann zwischen der farblichen aufteilung des GDP's und des Preises eines BigMacs gewechselt werden. Um die kleineren Länder auf der
+                Karte besser zu erkennen, kann mit dem Mausrad rein- und herausgezoomt werden. 
+                Zusätzlich wird ein Tooltip angezeigt, mit den Informationen zum Land wenn mit der Maus auf ein Land geht.
+                Eine dunklere Farbe weist auf einen höheren Wert auf. Also ein Land mit einem höheren Einkommen, bzw. ein Land, in dem der BigMac mehr kostet als in anderen.<br>
+                Direkt daneben, wird mit einem Histogramm gezeigt, wie viele BigMacs theoretisch gekauft werden könnten mit dem durchschnittlichen Gehalt und des Einkaufpreises vom BigMac pro Land.
+                Dieses Diagramm ist sortiert, sodass die Länder, welche am meisten kaufen können, ganz links sind und welche sich fast keine BigMacs leisten können ganz rechts.
+                Hier erkennt man direkt, wo die BigMacs im verhältnis zum Einkommen am günstigsten oder teuersten sind.<br>
+                Im Scatterplot werden die einzelnen Länder aufgeführt um das Verhältnis unter den Ländern selbst zu erkennen. Länder welche weiter Links sind haben ein höheres Einkommen.
+                Gleichzeitig je weiter oben auf der Y-Achse, desto mehr bezahlen diese für einen BigMac. <br>
+                Hier kann mit klicken und ziehen ein Teil der X-Achse ausgewählt werden, welcher dann vergrössert wird. Bei einem Doppelklick in die weisse fläche, wird der Scatterplot
+                wieder zurückgesetzt.
+            </p>
+            <br>
+
+            <h4 class="w3-center">Fundamental Principles of Analytical Design (Tufte)</h4>
+            <p class="text-justify">
+                <b>Kontextualisierung</b><br> 
+                Die interaktive Karte bietet einen Überblick über die Welt und
+                der Verteilung der GDP/BigMac Preiswerte. <br>
+                Dem Nutzer wird die möglichkeit geboten, zwischen den beiden Werten zu wechseln und somit die Einfärbung seinen individuellen Bedürfnissen anzupassen.<br>
+                
+                <b>Sichtbarkeit</b><br>
+                Das Histogramm zeigt auf einen Blick welche Länder im Verhältnis zum Einkomman am günstigsten einen BigMac erwerben können.<br>
+                Die Visualisierung ist klar und prägnant gestaltet, sodass die wichtigsten Informationen leicht zu erkennen sind. <br>
+                
+                <b>Intuition</b><br> 
+                Durch hovern auf einem Land werden die Informationen in einem Tooltip angezeigt. So bekommt der User direkt die wichtigen Informationen bezüglich eines Landes.
+                Direkt daneben sind die Länder aufgelistet, in dem der User dann das ausgewählte Land sehen kann und erkennt auf welchem Platz dieses ist.<br>
+                
+                <b>Klarheit</b><br>
+                Die Diagramme werden klar beschrieben, was darauf zu sehen ist. Bei dem Scatterplot wird die Beziehung der beiden Werte des GDP's und Preis des BigMacs aufgezeigt.
+                Die Visualisierungen sind leicht und verständlich gestaltet, um die Zusammenhänge leicht zu verstehen.<br>
+            </p>
+
+            <br>
+            <h4 class="w3-center">Data-Ink Ratio (Tufte)</h4>
+            <p class="text-justify">
+                Bei der Visualisierung wurde darauf geachtet, dass die Data-Ink Ratio so hoch wie möglich ist.
+                Es wurde auf eine minimalistische Gestaltung gesetzt, um die wichtigen Daten hervorzuheben. Weiter wurde darauf geachtet, dass bei jeder Darstellung
+                nur eine Information dargestellt wird. Die Visualisierungen sind klar und prägnant gesaltet, um die Data-Ink Ratio sehr hoch zu halten.
+            </p>
+
+            <br>
+            <h4 class="w3-center">Human Perception</h4>
+            <p class="text-justify">
+                Damit der User auf den ersten Blick erkennt, um was es sich hier handelt, wurde ein ansprechendes Titelbild verwendet.
+                Hier zeigt es schon auf, dass es sich um den BigMac Index, bzw. den Preis des BigMacs handelt. <br>
+                Die wichtigsten Visualisierungen wurden als erstes  und direkt nebeneinander platziert. Somit erkennt der User die Zusammenhänge der Werte am besten.
+                Weiter unten kann der User im Scatterplot die platzierungen der Länder im Verhätnis des GDP und BigMac Preises einsehen.
+            </p>
+
+            <br>
+            <h4 class="w3-center">Tasks in Data Visualization</h4>
+            <p class="text-justify">
+                Als erstes wurden die Daten der Quellen transformiert und in ein seperates CSV zusammengefügt. Danach wurden die Maps, Histogram und Scatterplot auf dieses Dataset programmiert.
+                Um mehr interaktivität zu bieten, wurde dies danach impplementiert. Am schluss wurden die Seite für ein besseres Usererlebnis mit HTML und CSS überarbeitet.
+            </p>
+
+            <br>
+            <h4 class="w3-center">Interaction Concept</h4>
+            <p class="text-justify">
+                Die meisten Darstellungen der Webseite sind interaktiv gestaltet. Bei der Karte kann gezoomt und bewegt werden (sehr buggy).
+                Zudem wird der Umriss des Landes hervorgehebt und die anderen Länder ausgebleicht, wenn mit der Maus auf ein Land gehovered wird. 
+                Dazu erscheint ein Tooltip, in dem die genauen Informationen zu dem Land angezeigt werden. 
+                Mit dem Button oberhalb der Map kann zwischen des GDP und des BigMac Preises gewechselt werden. Somit verändert sich auch die einfärbungen der Länder auf der Karte.<br>
+                Zusätzlich sollte der Balken auf dem Histogram hervorgehoben werden, wenn das spezifische Land auf der Karte angesehen wird. Dies konnte leider nicht impplementiert werden.<br><br>
+                
+                <b>Info: </b>Die Interaktionen mit der Karte funktionieren auf der Github.io seite nur wenn das Developermenu mit F12 geöffnet wurde. Lokal funktioniert alles ganz normal
+            </p>
+        </div>
+
+        <div class="w3-content w3-center">
+            <h3 class="w3-center">Findings</h3>
+            <p class="text-justify">
+                Zentral-Europa, Nordamerika und Australien haben ein sehr hohes durchschnittseinkommen. Gleichzeitig haben diese aber auch einen erhöhten Preis für den BigMac.
+                Im Scatteplot erkennt man sehr schnell, dass nur wenige Länder über der $50'000 grenze sind. Diese sind aber auch fast doppelt so hoch auf der Y-Achse wie andere Länder.
+                Russland hat den zwar billigsten BigMac, jedoch auche in sehr kleines Einkommen. Norwegen hat das höchste einkommen, jedoch bezahlen diese das dreifache für den BigMac wie Russland.
+                Dass die Schweiz auf Platz 8. ist, mit der anzahl an maximum kaufbaren BigMacs ist schon erstaunlich. Das sehr hohe durchschnittseinkommen übertrumpft den höheren einkaufspreis schlussendlich doch.
+                Dass die USA, das Geburtsland des McDonalds und somit die Heimat des BigMacs ist nur auf Platz 7. Also nur knapp vor der Schweiz.<br><br>
+                
+                Es ist nur eine einfache gegenüberstellung der beiden Werte, was nicht zu 100% auf die Realität zutreffen wird. Jedoch kann mit sicherheit gesagt werden dass:
+                <br><br>
+                <p class="text-center"><b class="text-center">Die Schweiz den teuersten BigMac hat, jedoch im Verhältnis zum Einkomman eines der günstigsten Länder ist.</b></p>
+            </p>
+        </div>
+<!-- SECTION DESIGN -->
+
+        <div class="w3-content w3-container w3-padding-64" id="ref">
+            <h3 class="w3-center">References</h3>
+            <h4>Datasets</h4>
+            <p><a href="https://github.com/TheEconomist/big-mac-data/releases">BIG MAC Index</a><br/>
+                Github page von "TheEconomist", auf der die Daten released werden<br/>
+                
+            </p>
+            <p><a href="https://data.worldbank.org/indicator/NY.ADJ.NNTY.PC.CD">Average Income</a><br/>
+                Website von The World Bank, welche die Daten bereitstellt.
+            </p>
+            <br>
+            <h4>D3.js Hilfe</h4>
+            <p><a href="https://d3-graph-gallery.com/index.html">D3-graph-gallery.com</a><br/>
+                Eine Webseite mit verschiedenen Vorlagen und Beispiele für die verschiedenen Charts.
+            </p>
+            <p>AI<br/>
+                Bei allgemeinen Coding fragen wurde sich an ChatGPT oder Google BARD gewendet.
+            </p>
+        </div>
+<!-- SECTION DESIGN -->
+
+        <div class="w3-content w3-container w3-padding-64" id="team">
+            <h3 class="w3-center">Team</h3>
+            <p><b>Martin Höger</b><br/>
+                <a href="mailto:martin.hoeger@stud.hslu.ch">martin.hoeger@stud.hslu.ch</a><br>
+                Bsc in Informatik (I.BSCI.2101) <br>
+                Hochschule Luzern <br>
+                5.Semester <br>
+            </p>
+        </div>  
+
+    </body>
+
 </html>
